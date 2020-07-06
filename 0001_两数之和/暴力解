@@ -7,7 +7,7 @@ class Solution(object):
         """
 
         #暴力解
-        #O(N2)
+        #O(n2)
         
         
         for i in range(len(nums)-1):
