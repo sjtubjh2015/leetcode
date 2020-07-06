@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        
+        //两遍哈希表
+
+        unordered_map<int, int> hashmap;
+
+        for (int i = 0; i < nums.size(); ++i)
+            hashmap[nums[i]] = i;
+        for (int i = 0; i < nums.size(); ++i)
+            if (hashmap[target - nums[i]] && hashmap[target - nums[i]] != i)
+                return {hashmap[target - nums[i]], i};
+        return {};
+    }
+};
