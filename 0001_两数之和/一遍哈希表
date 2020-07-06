@@ -9,7 +9,7 @@ class Solution(object):
 
         #哈希映射
         #num->index
-        O(n)
+        #O(n)
         
         
         hashmap = {}
