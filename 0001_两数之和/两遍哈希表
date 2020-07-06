@@ -1,0 +1,19 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+
+
+        #两遍哈希表
+        #num->index
+        #O(n)
+
+        hashmap = {}
+        for i in range(len(nums)):
+            hashmap[nums[i]] = i
+        for i in range(len(nums) - 1):
+            if hashmap.has_key(target - nums[i]) and i != hashmap.get(target - nums[i]):
+                return [i, hashmap.get(target - nums[i])]
