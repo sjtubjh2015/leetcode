@@ -31,6 +31,6 @@ class Solution(object):
             else:
                 break
             l2 = l2.next if l2 else None
-        if carray:
+        if carry:
             l1.next = ListNode(1)
         return ans
