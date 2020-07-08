@@ -4,6 +4,8 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
+        
+        #hashmap:char -> index
 
         
         hashmap = {}
