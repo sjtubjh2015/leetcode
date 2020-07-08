@@ -1,0 +1,21 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+
+        
+        hashmap = {}
+        lh = 0
+        maxlen = curlen = 0
+        for rh in range(len(s)):
+            if hashmap.has_key(s[rh]) and hashmap[s[rh]] >= lh:
+                lh = hashmap[s[rh]] + 1
+                curlen = rh - lh + 1
+            else:
+                curlen += 1
+            hashmap[s[rh]] = rh
+            if curlen > maxlen:
+                maxlen = curlen
+        return maxlen
