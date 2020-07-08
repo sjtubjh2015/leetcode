@@ -1,0 +1,23 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+
+        #lookup:元素集合
+        #O(n)
+     
+        lh = 0
+        lookup = set()
+        curlen = maxlen = 0
+        for rh in range(len(s)):
+            while s[rh] in lookup:
+                lookup.remove(s[lh])
+                lh += 1
+                curlen -= 1
+            lookup.add(s[rh])
+            curlen += 1
+            if curlen > maxlen:
+                maxlen = curlen
+        return maxlen
