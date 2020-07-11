@@ -13,6 +13,7 @@ class Solution(object):
         hashmap = {}
         n = len(nums)
         for i in range(n):
-            if hashmap.has_key(target - nums[i]):
-                return [i, hashmap.get(target - nums[i])]
+            tmp = target - nums[i]
+            if hashmap.has_key(tmp):
+                return [i, hashmap.get(tmp)]
             hashmap[nums[i]] = i
