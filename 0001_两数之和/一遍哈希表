@@ -6,14 +6,13 @@ class Solution(object):
         :rtype: List[int]
         """
 
-
         #哈希映射
         #num->index
         #O(n)
         
-        
         hashmap = {}
-        for i in range(len(nums)):
+        n = len(nums)
+        for i in range(n):
             if hashmap.has_key(target - nums[i]):
                 return [i, hashmap.get(target - nums[i])]
             hashmap[nums[i]] = i
