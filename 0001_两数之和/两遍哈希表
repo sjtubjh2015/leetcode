@@ -15,5 +15,6 @@ class Solution(object):
         for i in range(n):
             hashmap[nums[i]] = i
         for i in range(n):
-            if hashmap.has_key(target - nums[i]) and i != hashmap.get(target - nums[i]):
-                return [i, hashmap.get(target - nums[i])]
+            tmp = target - nums[i]
+            if hashmap.has_key(tmp) and i != hashmap.get(tmp):
+                return [i, hashmap.get(tmp)]
