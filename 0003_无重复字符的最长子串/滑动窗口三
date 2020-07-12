@@ -9,15 +9,16 @@ class Solution(object):
 
         
         hashmap = {}
-        lh = 0
+        left = 0
         maxlen = curlen = 0
-        for rh in range(len(s)):
-            if hashmap.has_key(s[rh]) and hashmap[s[rh]] >= lh:
-                lh = hashmap[s[rh]] + 1
-                curlen = rh - lh + 1
+        n = len(s)
+        for right in range(n):
+            if hashmap.has_key(s[right]) and hashmap[s[right]] >= left:
+                left = hashmap[s[right]] + 1
+                curlen = right - left + 1
             else:
                 curlen += 1
-            hashmap[s[rh]] = rh
+            hashmap[s[right]] = right
             if curlen > maxlen:
                 maxlen = curlen
         return maxlen
