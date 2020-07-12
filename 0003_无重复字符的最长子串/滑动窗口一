@@ -1,0 +1,21 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+
+        maxlen = curlen = 0
+        lookup = set()
+        n = len(s)
+        right = 0
+        for left in range(n):
+            while right < n and s[right] not in lookup:
+                lookup.add(s[right])
+                right += 1
+                curlen += 1
+            if curlen > maxlen:
+                maxlen = curlen
+            lookup.remove(s[left])
+            curlen -= 1
+        return maxlen
