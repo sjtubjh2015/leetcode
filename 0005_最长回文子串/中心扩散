@@ -1,28 +1,23 @@
 class Solution(object):
+    #中心扩散函数
+    def expandAroundCenter(self, s, left, right):
+        while left >= 0 and right < len(s) and s[left] == s[right]:
+            left -= 1
+            right += 1
+        return left + 1, right - 1
+
     def longestPalindrome(self, s):
         """
         :type s: str
         :rtype: str
         """
 
-        ans = ""
-        n = len(s)
-        for i in range(n):
-            step = 0
-            while i-step>=0 and i+step<n:
-                if s[i-step] == s[i+step]:
-                    step += 1
-                else:
-                    break
-            if step*2-1 > len(ans):
-                ans = s[i-step+1:i+step]
-        for i in range(n-1):
-            step = 0
-            while i-step>=0 and i+1+step<n:
-                if s[i-step] == s[i+1+step]:
-                    step += 1
-                else:
-                    break
-            if step*2 > len(ans):
-                ans = s[i-step+1:i+1+step]
-        return ans
+        start, end = 0, 0
+        for i in range(len(s)):
+            left1, right1 = self.expandAroundCenter(s, i, i)
+            left2, right2 = self.expandAroundCenter(s, i, i + 1)
+            if right1 - left1 > end - start:
+                start, end = left1, right1
+            if right2 - left2 > end - start:
+                start, end = left2, right2
+        return s[start:end + 1]
