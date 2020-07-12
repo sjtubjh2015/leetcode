@@ -8,15 +8,16 @@ class Solution(object):
         #lookup:元素集合
         #O(n)
      
-        lh = 0
+        left = 0
         lookup = set()
         curlen = maxlen = 0
-        for rh in range(len(s)):
-            while s[rh] in lookup:
-                lookup.remove(s[lh])
-                lh += 1
+        n = len(s)
+        for right in range(n):
+            while s[right] in lookup:
+                lookup.remove(s[left])
+                left += 1
                 curlen -= 1
-            lookup.add(s[rh])
+            lookup.add(s[right])
             curlen += 1
             if curlen > maxlen:
                 maxlen = curlen
