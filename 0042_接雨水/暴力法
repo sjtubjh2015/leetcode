@@ -1,0 +1,25 @@
+class Solution(object):
+    def trap(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+
+        left = 0
+        right = len(height) - 1
+        ans = 0
+        while left < right:
+            if height[left] == 0:
+                left += 1
+                continue
+            if height[right] == 0:
+                right -= 1
+                continue
+            h = min(height[left], height[right])
+            for i in range(left, right + 1):
+                if height[i] < h:
+                    ans += h - height[i]
+                    height[i] = 0
+                else:
+                    height[i] -= h
+        return ans
