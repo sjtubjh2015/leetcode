@@ -1,0 +1,19 @@
+class Solution(object):
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+
+        def backtrack(index):
+            if index == n - 1:
+                ans.append(nums[:])
+            for i in range(index, n):
+                nums[index], nums[i] = nums[i], nums[index]
+                backtrack(index + 1)
+                nums[index], nums[i] = nums[i], nums[index]
+        n = len(nums)
+        ans = []
+        if n > 0:
+            backtrack(0)
+        return ans
