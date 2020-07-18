@@ -1,0 +1,24 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+
+        #二进制表示唯一
+
+        charHash = {}
+        ansHash = {}
+        v = 1
+        for word in strs:
+            s = 0
+            for ch in word:
+                if not charHash.has_key(ch):
+                    charHash[ch] = v
+                    #word中重复单词的最大值
+                    v *= 10
+                s += charHash[ch]
+            if not ansHash.has_key(str(s)):
+                ansHash[str(s)] = []
+            ansHash[str(s)] += [word]
+        return ansHash.values()
