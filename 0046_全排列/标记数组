@@ -1,0 +1,21 @@
+class Solution(object):
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+
+        def backtrack(res):
+            if len(res) == n:
+                ans.append(res)
+            for i in range(n):
+                if flag[i]:
+                    flag[i] = False
+                    backtrack(res + [nums[i]])
+                    flag[i] = True
+        n = len(nums)
+        flag = [True] * n
+        ans = []
+        if n > 0:
+            backtrack([])
+        return ans
