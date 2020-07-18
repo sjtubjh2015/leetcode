@@ -1,0 +1,18 @@
+class Solution(object):
+    def canJump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+
+        n = len(nums)
+        right = 0
+        for i in range(n):
+            if i > right:
+                break
+            if i + nums[i] > right:
+                right = i + nums[i]
+        if right < n - 1:
+            return False
+        else:
+            return True
