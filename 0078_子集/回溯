@@ -1,0 +1,17 @@
+class Solution(object):
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+
+        def backtrack(res, index):
+            if len(res) == n:
+                ans.append(res)
+                return
+            for i in range(index, len(nums)):
+                backtrack(res + [nums[i]], i + 1)
+        ans = []
+        for n in range(len(nums) + 1):
+            backtrack([], 0)
+        return ans
