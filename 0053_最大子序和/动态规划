@@ -4,6 +4,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        
+        #dp[i] 代表以第i个数字结尾的连续子数组的最大和
+        #dp[i] = max(dp[i-1] + nums[i], nums[i])
+        #空间优化
 
         n = len(nums)
         maxSub = nums[0]
