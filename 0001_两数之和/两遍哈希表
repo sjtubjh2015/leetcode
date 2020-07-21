@@ -6,9 +6,7 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        #两遍哈希表
-        #num->index
-        #O(n)
+        #num -> index
 
         hashmap = {}
         n = len(nums)
