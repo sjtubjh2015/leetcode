@@ -12,6 +12,9 @@ class Solution(object):
         :type inorder: List[int]
         :rtype: TreeNode
         """
+        
+        #前序遍历：[ 根节点, [左子树的前序遍历结果], [右子树的前序遍历结果] ]
+        #中序遍历：[ [左子树的中序遍历结果], 根节点, [右子树的中序遍历结果] ]
 
         if len(preorder) == 0:
             return
