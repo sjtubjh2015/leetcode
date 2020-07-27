@@ -1,0 +1,15 @@
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        #1.任何数与0做异或运算，结果仍是原来的数，即a ⊕ 0 = a
+        #2.任何数与其自身做异或运算，结果是0， 即a ⊕ a = 0
+        #3.异或运算满足交换律和结合率，即a ⊕ b ⊕ a = b ⊕ a ⊕ a = b ⊕ (a ⊕ a) = b ⊕ 0 = b
+        
+        ans = 0
+        for i in range(len(nums)):
+            ans = ans ^ nums[i]
+        return ans
