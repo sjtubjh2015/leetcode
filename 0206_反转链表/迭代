@@ -1,0 +1,14 @@
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+
+        p = None
+        while head:
+            q = head
+            head = head.next
+            q.next = p
+            p = q
+        return p
