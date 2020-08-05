@@ -1,0 +1,18 @@
+class Solution(object):
+    def hammingDistance(self, x, y):
+        """
+        :type x: int
+        :type y: int
+        :rtype: int
+        """
+        
+        #x = 10001000
+        #x - 1 = 10000111
+        #x & (x - 1) = 10000000
+        
+        xor = x ^ y
+        ans = 0
+        while xor:
+            ans += 1
+            xor = xor & (xor-1)
+        return ans
